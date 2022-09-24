@@ -39,19 +39,8 @@
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
-
-                                <li class="nav-item">
-                                    <a class="nav-link" href='pages'>Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href='/pages/about'>About</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href='/pages/contact'>Contact</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href='/pages/service'>Services</a>
-                                </li>
+                            
+                               
 
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -65,10 +54,24 @@
                                 </li>
                             @endif
                         @else
+                        
+                            <li class="nav-item">
+                                <a class="nav-link" href='blog'>Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href='/blog/posts'>Posts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href='/blog/myposts'>My Posts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href='/blog/contact'>Contact</a>
+                            </li>
+                            
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                    <img style="width: 35px" src={{asset('/storage/images/'. Auth::user()->avatar)}} alt="bread" >
+                                    <label class="fw-bold ">{{ Auth::user()->name }}</label>
+                                    <img style="width: 35px" src={{asset('/storage/images/'. Auth::user()->avatar)}} alt="" >
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
