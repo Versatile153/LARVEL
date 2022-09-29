@@ -9,7 +9,7 @@
 
         <div class=" card mb-3 mt-1" style="max-width: 2000px;">
             <div class="row g-0">
-              <div class="col-md--5">
+              <div class="col-md--5" style="margin-top: -30px">
                 <img src="/images/laptop5.jpg" class="img-fluid rounded-start" alt="...">
               </div>
               <div class="col-md-5">
@@ -47,7 +47,7 @@
           <div class="col-md-6">
             <img src="/images/laptop3.jpg" class="img-fluid rounded-start" alt="...">
           </div>
-          <div class="col-md-5">
+          <div class="col-md-5" style="margin-left: 5rem">
             <div class="card-body">
               <h2 class="card-title">Are You Facing Chalenges of becoming
             a Web Developer?</h2>
@@ -99,7 +99,7 @@
                     </div>
                   </div>
                   
-              <div class="col-md-6">
+              <div class="col-md-6" style="margin-left: 5rem">
                 <img src="/images/laptop2.jpg" class="img-fluid rounded-start" alt="...">
               </div>
               
