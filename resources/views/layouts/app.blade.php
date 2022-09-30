@@ -13,6 +13,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -21,7 +22,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-blue shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand a" href="{{ url('/') }}">
                     Future
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -43,39 +44,38 @@
                                
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link a" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                               
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link a" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
                         
-                            <li class="nav-item">
-                                <a class="nav-link" href='blog'>Dashboard</a>
+                            
+                            <li class="nav-item li">
+                                <a class="nav-link a" href='/blog/posts'>Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href='/blog/posts'>Posts</a>
+                                <a class="nav-link a" href='/blog/myposts'>My Posts</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href='/blog/myposts'>My Posts</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href='/blog/contact'>Contact</a>
+                                <a class="nav-link a" href='/blog/contact'>Contact</a>
                             </li>
                             
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown " class="nav-link dropdown-toggle a" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <label class="fw-bold ">{{ Auth::user()->name }}</label>
                                     <img style="width: 35px" src={{asset('/storage/images/'. Auth::user()->avatar)}} alt="" >
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item a" href="home">Dashboard</a>
+                                    <a class="dropdown-item a" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
