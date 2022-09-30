@@ -3,38 +3,38 @@
 @extends('layouts.app')
 
 @section('content')
-<body style="background-image:url({{ URL::asset('design.jpg'); }}); background-repeat: no-repeat;" >
+<head>
+<link href="{{ URL::asset('storage/css/style.css'); }}" rel="stylesheet">
+</head>
+<body>
       
 
 <div class="container" >
     <div class="row justify-content-center">
-        <div class="col-md-11">
+        <div class="col-md-120">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header"><h2>Welcome  {{ Auth::user()->name }}</h2></div>
 
-                <div class="card-body">
+                <div class="card-body d-flex justify-content-between">
                     <div>
-                        <div class="d-flex justify-content-between">
-                            <h1>Welcome To Your Dashboard {{ Auth::user()->name }}</h1> 
-                            @if (session('status'))
-                                <div class="alert alert-success" role="alert">
-                                    {{ session('status') }}
+                         
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
 
-                            @endif
-                        </div>
-                        <div class="ml-auto float-end">
-                            <a href="/post" class="btn btn-secondary" >Create a Post</a>
-                        </div>
-                        <div>
-                            <form class="mt-5" action="/upload" method='POST' enctype="multipart/form-data" class="float-right">
-                                @csrf
-                                <img style="width: 200px" src={{asset('/storage/images/'. Auth::user()->avatar)}} alt="" >
-                                <label class="form-label">Upload/Change Display Picture</label><br>
-                                <input class="form-control form-control-sm" id="formFileSm" type="File" name='avatar'> <br>
-                                <input class="btn btn-primary " style="background-color:rgb(54, 85, 170)" type="submit">
-                            </form>
-                        </div>
-                        
+                        @endif
+                    </div>
+                  
+                    <form action="/up" method='POST' enctype="multipart/form-data" class="float-right">
+                        @csrf
+                        {{-- <img style="width: 200px" src={{asset('/storage/images/'. Auth::user()->avatar)}} alt="" > --}}
+                        <Label class="text-secondary">Upload Profile image</Label><br>
+                        <input type="File" name='avatar'> <br>
+                        <input class="btn btn-primary" type="submit">
+                    </form>
+                    
+                    <div class="ml-auto">
+                        <a href="/post" class="btn btn-secondary" >Create a Post</a>
                     </div>
                 </div>
             </div>
