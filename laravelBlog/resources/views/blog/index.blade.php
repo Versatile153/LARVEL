@@ -30,19 +30,24 @@
     </div>
   </div> --}}
 {{--  --}}
- <div class="card  col-m-6" style="max-width: 100%;min-height:300px;padding:20px;backgroundColor:white;margin:50px;border-radius:30px">
-    <div class="card-title text-center">
-        <h3>{{ $blog->topic }}</h3>
 
-    </div>
-    <div class="card-body ">
-      <a  href="{{ $blog->id }}" class="btn btn-primary">Go to Post</a>
-    </div>
-    <div class="card-footer text-muted">
-      <p>Created on:{{ $blog->created_at}} </p>
-       {{-- seen:{{ $blog->updated_at }} --}}
-    </div>
-  </div>
-   @endforeach
+        <div class="card  col-m-6" style="max-width: 100%;min-height:300px;padding:10px;backgroundColor:rgb(247, 247, 247);margin:30px;border-radius:30px">
+            <div class="card-title text-justify" style="margin:30px">
+            @if (Auth::check())
+                    <div ><a href="/blog/create"><button class="card-title btn-primary">Create New Blog</button></a></div>
+            @endif
+                <h3 class="text-center">{{ $blog->topic }}</h3>
+                <p style="text-align:justify;">{{ $blog->detail }}</p>
+                <p>Written by:{{ $blog->writer }}</p>
+            </div>
+            <div class="card-body ">
+            <a  href="{{ $blog->id }}" class="btn btn-primary">Go to Post</a>
+            </div>
+            <div class="card-footer text-muted">
+            <p>Created on:{{ date('jS M Y',strtotime($blog->created_at))}} </p>
+            {{-- seen:{{ $blog->updated_at }} --}}
+            </div>
+        </div>
+        @endforeach
 
  @endif

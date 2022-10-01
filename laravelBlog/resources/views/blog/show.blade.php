@@ -3,28 +3,31 @@
 @if (count($blogs)>0)
 @foreach ($blogs as $blog )
 
-<div class="card" style="border-radius: 30px;margin:50px">
-    <h1 class="card-header">My Blog Post</h1>
-    <div class="card-body" style="display: flex;flex-direction:row;padding:10px;padding:30px;justify-items:space around;height:500px;" >
-        <div style="margin:50px;width: 100%;padding 30px;justify-content:center;align-text:center;justify-items:centre;text-align:center;top:20px;">
+<div class="card" style="border-radius: 30px;margin:10px;min-height:400px;">
+    <h2 class="card-header">Written by {{ $blog->writer }}</h2>
+    <div class="card-body" style="display: flex;flex-direction:column-reverse;padding:5px;justify-items:space around;" >
+        <div style="margin:20px;padding:10px;justify-items:centre;text-align:block;top:auto;">
             <h3>{{ $blog->topic }} </h3>
-            <h5>{{ $blog->detail}}</h5>
-            <h6>written by:{{ $blog->writer }}</h6>
-            <p>Post was created:{{ $blog->created_at }}</p>
-            <p>Last updated:{{ $blog->updated_at }}</p>
-            <p><a href="/blog/{{ $blog->id }}/edit"><button class="btn"> Edit Post</button> </a></p>
+            <p style="text-align: justify">{{ $blog->detail}}</p>
+            <p>written by:{{ $blog->writer }}</p>
+            <p class="text-muted">Post was created:{{ date('jS M Y ',strtotime($blog->created_at)) }} Last updated:{{ $blog->updated_at }}</p>
+            @if (Auth::user()->id)
+                <a href="/blog/{{ $blog->id }}/edit"><button class="btn" style="display: flex;"> Edit Post</button> </a>
             <form action="/blog/{{ $blog->id }}" method="POST">
                 @csrf
                 @method('delete')
-            <input type="submit" value="delete"  class="btn">
+            <input type="submit" value="Delete"  class="btn" style="display: flex">
             </form>
+            @endif
+
+
         </div>
-        <div style="width: 100%" >
-              <img src={{ asset('/storage/images/'.$blog->pics) }} alt="" style='height:400px; border-radius:50px;justify-contents:space-around;'>
+        <div style="width: ;margin:auto" >
+              <img src={{ asset('/storage/images/'.$blog->pics) }} alt="" style='max-width:200px;padding:10px; border-radius:50px;justify-contents:space-around;'>
         </div>
     </div>
 </div>
-<h3><a href="/blog/create">Create New blog</a></h3>
+{{-- <h3><a href="/blog/create">Create New blog</a></h3> --}}
 {{-- @if (session()->has('message'))
 {{
     session()->get('message')

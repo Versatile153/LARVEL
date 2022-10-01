@@ -17,14 +17,14 @@
                     {{ __('You are logged in!') }}
                      {{ __('Welcome ') }} {{ Auth::user()->name }}
                 </div>
-                <a href="/blog/create"><button class="btn"> Create a Post</button></a>
+                {{-- <a href="/blog/create"><button class="btn"> Create a Post</button></a> --}}
             </div>
-            <div class="card"><p>Update profile Picture</p>
+            <div class="card-body"><p>Update profile Picture</p>
                 <form action="/upload" method="POST" enctype="multipart/form-data">@csrf
                     <input type="file" name="avatar" id=""><br>
                     <input type="submit" value='submit' name="" id=""class='btn-primary'>
                 </form>
-                <button><a href="/blog/create">create post</a></button>
+                {{-- <button><a href="/blog/create">create post</a></button> --}}
             </div>
         </div>
     </div>

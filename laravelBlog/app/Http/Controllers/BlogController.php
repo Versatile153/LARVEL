@@ -21,7 +21,7 @@ class BlogController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth',['expect'=>['index','show']]);
     }
 
     public function index(){
@@ -30,7 +30,7 @@ class BlogController extends Controller
         //  return $blogs;
     }
  public function create(){
-    // $post=DB::select('select * from users');
+    // $post=DB::insert('insert into blogs');
     // return view ('blog.create',compact('post'));
     return view('blog.create');
   }
@@ -46,7 +46,7 @@ class BlogController extends Controller
   public function destroy($id){
     $blogs=blog::find($id);
     $blogs->delete();
-    return view('blog.show')->with('message', $id.' has been deleted' );
+    return 'Post '.$id.' deleted';
 
   }
   public function store(Request $request){
