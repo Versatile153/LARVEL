@@ -1,0 +1,102 @@
+
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+
+@import 'variables';
+
+
+@import 'bootstrap/scss/bootstrap';
+
+
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"  );
+
+
+/* .navbar{
+    position: relative
+} */
+
+
+.section1 {
+    width: 19rem;
+    height: 40px;
+
+}
+
+.centa{
+    position: absolute;
+    margin-top: -500px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    
+    height: 2cm;
+    width: 27cm;
+
+    margin-left: 9rem;
+    color: white;
+    font-weight: bolder;
+}
+.card2{
+    position: relative;
+    margin-top: 30px;
+    
+}
+.latest-posts{
+    text-align: center;
+}
+.btn{
+    background-color: blue;
+    border-radius: 20px;
+    color: white;
+    font-weight: bolder;
+    width: 3cm;
+    height: 1cm;
+}
+.text-muted{
+    
+    border-radius: 20px;
+    color: white;
+    font-weight: bolder;
+}
+
+.footer{
+    background-color:#212529 ;
+    color: white;
+}
+ul li {
+   
+    text-decoration: none;
+    list-style-type: none;
+}
+
+li a{ 
+    color: white;
+    text-decoration: none;
+    
+    
+}
+.c_right{
+    background-color: black;
+}
+
+@media  screen and (max-width:600px) {
+    .centa{
+        position: absolute;
+        margin-top: -250px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        background-color: whitesmoke;
+        height: 2cm;
+        width: 20cm;
+        border-radius: 30px;
+        margin-left: 2rem;
+        color: black;
+    }
+    .centa h1{
+        margin-left: 2rem;
+    }
+
+}
+   
